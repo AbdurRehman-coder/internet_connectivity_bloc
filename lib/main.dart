@@ -1,5 +1,7 @@
 import 'package:bloc_internet_connectivity/bloc/internet-bloc/internet_bloc.dart';
-import 'package:bloc_internet_connectivity/screens/home_screen.dart';
+import 'package:bloc_internet_connectivity/cubit/internet_cubit.dart';
+import 'package:bloc_internet_connectivity/screens/bloc_home_screen.dart';
+import 'package:bloc_internet_connectivity/screens/cubit_home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,13 +16,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (BuildContext context) => InternetBloc(),
+      create: (BuildContext context) => InternetCubit(),
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const HomeScreen(),
+        home: const CubitHomeScreen(),
       ),
     );
   }
