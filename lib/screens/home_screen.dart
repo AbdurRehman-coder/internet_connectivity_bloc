@@ -22,8 +22,8 @@ class HomeScreen extends StatelessWidget {
         child: BlocConsumer<InternetBloc, InternetState>(
           /// difference b/w "==" and "is"
           /// both are used for comparison but;
-          /// '==' to check values
-          /// 'is' to check data type;
+          /// '==' to check values e.g: int a=2; int b=5; if(a==b) --> false
+          /// 'is' to check data type;  e.g: if(a is int){}  we can not do like this if(a == int)
           builder: (context, state) {
             print('builder state: ${state}');
             if(state is InternetLostState){
