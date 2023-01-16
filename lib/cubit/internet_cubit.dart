@@ -7,12 +7,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 /// In cubit there is no event, it consist of only States and simple functions
 /// The [State] are actually empty classes so if class has no properties and methods so
 /// its better to use the [enum] instead of classes in these scenarios
-enum InternetStatesEnum{initial, lost, gained}
+enum InternetStatesEnum{ initial, lost, gained }
 
-class InternetCubit extends Cubit<InternetStatesEnum>{
+class InternetCubit extends Cubit<InternetStatesEnum> {
 
   Connectivity _connectivity = Connectivity();
-  StreamSubscription? connectivitySubscription;
+  StreamSubscription<ConnectivityResult>? connectivitySubscription;
 
   InternetCubit() : super(InternetStatesEnum.initial){
 
@@ -20,7 +20,7 @@ class InternetCubit extends Cubit<InternetStatesEnum>{
       if(result == ConnectivityResult.wifi || result == ConnectivityResult.mobile){
         emit(InternetStatesEnum.gained);
       } else {
-        emit(InternetStatesEnum.gained);
+        emit(InternetStatesEnum.lost);
       }
     });
 
